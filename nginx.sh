@@ -156,4 +156,3 @@ END
 
 # Khởi động lại PHP-FPM
 systemctl restart nginx
-chown -R nginx:nginx /home/nginx/nukeviet4/public_html/
