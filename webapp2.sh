@@ -1,5 +1,7 @@
 #!/bin/bash
 
+hostnamectl set-hostname webapp2.nukeviet.vn
+
 cd /root/setup/
 chmod +x /root/setup/*.sh
 /root/setup/csf.sh

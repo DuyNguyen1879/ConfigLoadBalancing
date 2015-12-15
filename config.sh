@@ -17,3 +17,5 @@ if [[ $(arch) != "x86_64" ]] ; then
 	echo "NukeViet Script chi hoat dong tren CentOS 7.1 64bit."
 	exit
 fi
+
+timedatectl set-timezone Asia/Ho_Chi_Minh
