@@ -30,4 +30,8 @@ chmod +x /root/setup/*.sh
 
 ````
 
+download NukeViet về máy đề cài đặt:
+```
+git clone https://github.com/nukeviet/nukeviet.git /home/nginx/nukeviet4/public_html
+``
 
