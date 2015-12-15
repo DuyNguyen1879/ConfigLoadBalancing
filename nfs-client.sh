@@ -11,8 +11,8 @@ systemctl start rpcbind
 
 source $(dirname $0)/config.sh
 
+sleep 5
 logshowmount="$( ( showmount -e "$IP_LB1_NUKEVIET" ) 2>&1 )"
-
 if [[ $logshowmount == *"Export list for $IP_LB1_NUKEVIET"* ]]
 then
 	echo "showmount ok: $logshowmount"
