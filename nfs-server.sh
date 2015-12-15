@@ -15,7 +15,7 @@ systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
 
-source $(dirname $0)/config.sh
+source /root/setup/config.sh
 
 
 #Chúng ta phải thay đổi “/etc/exports” tập tin để thực hiện một mục của thư mục “/home/nginx/nukeviet4/public_html” mà bạn muốn chia sẻ. 
