@@ -11,12 +11,15 @@ Thành
 ```
 SELINUX=disabled
 ```
+Khởi động lại máy chủ.
 
 2) Check out file cài đặt tự động 
 ```
 yum install git -y
 git clone https://github.com/nukeviet/LoadBalancing.git /root/setup/
 ```
+
+Khai báo lại các thông số trong file config.sh
 
 sau đó chúng ta chạy lần lượt tool cài đặt
 ```
