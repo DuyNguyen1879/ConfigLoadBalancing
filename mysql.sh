@@ -1,4 +1,5 @@
 #!/bin/sh
+
 #Tạo repo cho MariaDB 
 cat > "/etc/yum.repos.d/Mariadb.repo" <<END
 # MariaDB 10.1 CentOS repository list - created 2015-12-06 14:53 UTC
@@ -15,6 +16,7 @@ sudo yum install -y MariaDB-server MariaDB-client
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 
+#Thiết lập  và cấu hình CSDL tự động
 config=".my.cnf.$$"
 command=".mysql.$$"
 
@@ -310,9 +312,8 @@ remove_remote_root
 remove_test_database
 reload_privilege_tables
 
-echo "Password root mysql $rootpass"
-
-#!/bin/bash
+echo "Password mysql root $rootpass"
+echo "dbuname: nukeviet4, dbuname: nukeviet4 dbpass: $dbpass"
 
 dbpass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 16);
 dbuname="nukeviet4"
@@ -323,6 +324,7 @@ mysql -u root -p"$rootpass" -e "GRANT USAGE ON * . * TO '$dbuname'@'localhost' I
 mysql -u root -p"$rootpass" -e "CREATE DATABASE $dbname;";
 mysql -u root -p"$rootpass" -e "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , INDEX , ALTER , CREATE TEMPORARY TABLES , CREATE VIEW , SHOW VIEW , CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON $dbname . * TO '$dbuname'@'localhost'";
 
+if [ -d "/home/nginx/nukeviet4/public_html/install/" ]; then
 nv_password1=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 7);
 nv_password2=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 7);
 
@@ -351,17 +353,6 @@ if( ! defined( 'NV_MAINFILE' ) ) die();
 \$array_data['socialbutton'] = 0;
 
 END
-
 chown nginx:nginx /home/nginx/nukeviet4/public_html/install/default.php
-echo "Password website admin / $nv_password1@$nv_password2"
-
-# Download phpMyAdmin
-cd /home/nginx/nukeviet4/public_html
-wget https://files.phpmyadmin.net/phpMyAdmin/4.5.2/phpMyAdmin-4.5.2-english.zip
-unzip phpMyAdmin-4.5.2-english.zip 
-mv /home/nginx/nukeviet4/public_html/phpMyAdmin-4.5.2-english /home/nginx/nukeviet4/public_html/phpMyAdmin
-chown -R nginx:nginx /home/nginx/nukeviet4/public_html/phpMyAdmin
-rm -f phpMyAdmin-4.5.2-english.zip
-
-echo "Password mysql root $rootpass"
-echo "Password website admin / $nv_password1@$nv_password2"
+echo "Password website admin / $nv_password1@$nv_password2 when setup website"
+fi

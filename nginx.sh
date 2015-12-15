@@ -14,6 +14,11 @@ fi
 
 timedatectl set-timezone Asia/Ho_Chi_Minh
 
+# disable selinux
+if [ -s /etc/selinux/config ]; then
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+fi
+
 rm -f um.repos.d/nginx.repo
 cat > "/etc/yum.repos.d/nginx.repo" <<END
 [nginx]
