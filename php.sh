@@ -16,8 +16,7 @@ fi
 yum install epel-release -y
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-#yum --enablerepo=remi,remi-php56 install -y php-fpm php-mysql php-common php-mbstring php-mcrypt php-gd php-xml php-memcached php-opcache
-yum --enablerepo=remi,remi-php70 install -y php-fpm php-mysql php-common php-mbstring php-mcrypt php-gd php-xml php-memcached php-opcache
+yum --enablerepo=remi,remi-php70 install -y php-fpm php-mysql php-common php-mbstring php-mcrypt php-gd php-xml php-zip php-memcached php-opcache
 
 systemctl start php-fpm
 systemctl enable php-fpm

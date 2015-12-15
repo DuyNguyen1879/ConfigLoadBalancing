@@ -2,18 +2,12 @@
 
 # Chúng ta cần phải cài đặt các gói NFS trên máy chủ NFS, cài đặt nó bằng cách sử dụng lệnh sau đây. 
 yum install -y nfs-utils nfs-utils-lib libnfsidmap
+yum install -y nfs-utils libnfsidmap
 
 #Cấu hình dưới dạng dịch vụ dịch vụ NFS.
 
 systemctl enable rpcbind
-systemctl enable nfs-server
-#systemctl enable nfs-lock
-#systemctl enable nfs-idmap
-
 systemctl start rpcbind
-systemctl start nfs-server
-systemctl start nfs-lock
-systemctl start nfs-idmap
 
 source $(dirname $0)/config.sh
 

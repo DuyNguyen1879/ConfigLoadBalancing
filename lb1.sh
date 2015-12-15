@@ -10,4 +10,4 @@ chmod +x /root/setup/*.sh
 # Khởi động lại PHP-FPM
 systemctl restart php-fpm
 systemctl restart nginx
-#reboot
+reboot

@@ -50,9 +50,8 @@ sed -i 's/TESTING = "1"/TESTING = "0"/g' /etc/csf/csf.conf
 
 #Restart CSF service:
 systemctl restart csf.service
-#!/bin/bash
 
-source $(dirname $0)/config.sh
+source /root/setup/config.sh
 
 csf -a "$IP_LB1_NUKEVIET"
 csf -a "$IP_WEBAPP1_NUKEVIET"
@@ -60,10 +59,10 @@ csf -a "$IP_WEBAPP2_NUKEVIET"
 csf -a "$IP_DB1_NUKEVIET"
 csf -a "$IP_DB2_NUKEVIET"
 
-if [ $IP_WEBAPP3_NUKEVIET != "" ]; then
+if [ "$IP_WEBAPP1_NUKEVIET" != "" ]; then
 	csf -a "$IP_WEBAPP3_NUKEVIET"
 fi
-if [ $IP_DB3_NUKEVIET != "" ]; then
+if [ "$IP_DB3_NUKEVIET" != "" ]; then
 	csf -a "$IP_DB3_NUKEVIET"
 fi
 
