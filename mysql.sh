@@ -319,10 +319,10 @@ dbpass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 16);
 dbuname="nukeviet4"
 dbname="nukeviet4"
 
-mysql -u root -p"$rootpass" -e "CREATE USER '$dbuname'@'localhost' IDENTIFIED BY '$dbpass';";
-mysql -u root -p"$rootpass" -e "GRANT USAGE ON * . * TO '$dbuname'@'localhost' IDENTIFIED BY '$dbpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;";
+mysql -u root -p"$rootpass" -e "CREATE USER '$dbuname'@'%' IDENTIFIED BY '$dbpass';";
+mysql -u root -p"$rootpass" -e "GRANT USAGE ON * . * TO '$dbuname'@'%' IDENTIFIED BY '$dbpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;";
 mysql -u root -p"$rootpass" -e "CREATE DATABASE $dbname;";
-mysql -u root -p"$rootpass" -e "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , INDEX , ALTER , CREATE TEMPORARY TABLES , CREATE VIEW , SHOW VIEW , CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON $dbname . * TO '$dbuname'@'localhost'";
+mysql -u root -p"$rootpass" -e "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , INDEX , ALTER , CREATE TEMPORARY TABLES , CREATE VIEW , SHOW VIEW , CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON $dbname . * TO '$dbuname'@'%'";
 
 if [ -d "/home/nginx/nukeviet4/public_html/install/" ]; then
 nv_password1=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 7);
@@ -333,7 +333,7 @@ cat > "/home/nginx/nukeviet4/public_html/install/default.php" <<END
 
 if( ! defined( 'NV_MAINFILE' ) ) die();
 
-\$db_config['dbhost'] = 'localhost';
+\$db_config['dbhost'] = '%';
 \$db_config['dbtype'] = 'mysql';
 \$db_config['dbport'] = '';
 \$db_config['dbname'] = '$dbname';

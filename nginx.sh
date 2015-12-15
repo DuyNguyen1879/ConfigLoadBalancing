@@ -159,5 +159,5 @@ server {
 
 END
 
-# Khởi động lại PHP-FPM
+# Khởi động lại nginx
 systemctl restart nginx
