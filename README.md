@@ -25,7 +25,7 @@ Khai báo lại các thông số trong file config.sh, với các máy WEBAPP, D
 3) Cài đặt đồng thời các máy, tương ứng với file
 
 ```
-- db1.sh (Máy này sẽ cài lâu nhất do dơwnload MariDB c)
+- db1.sh (Máy này sẽ cài lâu nhất do dơwnload MariDB chậm)
 - lb1.sh
 - webapp1.sh
 - webapp1.sh
