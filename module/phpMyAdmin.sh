@@ -10,4 +10,5 @@ if [ -d "/home/nginx/nukeviet4/public_html" ]; then
 	rm -f phpMyAdmin-4.5.2-english.zip
 else
 	echo "Chưa cài đặt nginx"
+	exit
 fi

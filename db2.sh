@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hostnamectl set-hostname db1.nukeviet.vn
+hostnamectl set-hostname db2.nukeviet.vn
 
 chmod +x /root/setup/module*.sh
 source /root/setup/config.sh
@@ -13,7 +13,7 @@ if [ "$IP_WEBAPP3_NUKEVIET" != "" ]; then
 	csf -a "$IP_WEBAPP3_NUKEVIET"
 fi
 
-csf -a "$IP_DB2_NUKEVIET"
+csf -a "$IP_DB1_NUKEVIET"
 if [ "$IP_DB3_NUKEVIET" != "" ]; then
 	csf -a "$IP_DB3_NUKEVIET"
 fi
