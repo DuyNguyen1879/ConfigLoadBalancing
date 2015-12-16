@@ -2,7 +2,7 @@
 
 hostnamectl set-hostname db1.nukeviet.vn
 
-chmod +x /root/setup/module*.sh
+chmod +x /root/setup/module/*.sh
 source /root/setup/config.sh
 
 /root/setup/module/csf.sh
