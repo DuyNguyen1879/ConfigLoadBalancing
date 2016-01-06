@@ -106,6 +106,12 @@ server {
 		rewrite /(.*)tag/(.*)\$ /index.php;
 		rewrite /install/(.*)(\.rewrite)$ /install/rewrite.php;
 	}
+	
+	rewrite ^/seek\/q\=([^?]+)$ /index.php?nv=seek&q=$1 break;
+	rewrite ^/search\/q\=([^?]+)$ /index.php?nv=news&op=search&q=$1 break;
+	rewrite ^/([a-zA-Z0-9\-]+)\/search\/q\=([^?]+)$ /index.php?nv=$1&op=search&q=$2 break; 
+	rewrite ^/([a-zA-Z0-9-\/]+)\/([a-zA-Z0-9-]+)$ /$1/$2/ break; 
+	rewrite ^/([a-zA-Z0-9-]+)$ /$1/ break;	
 
 	location ~ ^/admin/([a-z0-9]+)/(.*)\$ {
 		deny all;
