@@ -24,10 +24,14 @@ systemctl enable php-fpm
 sed -i 's/user = apache/user = nginx/g' /etc/php-fpm.d/www.conf
 sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
 
+sed -i 's/php_value\[session.save_handler\]/;php_value\[session.save_handler\]/g' /etc/php-fpm.d/www.conf
+sed -i 's/php_value\[session.save_path\]/;php_value\[session.save_path\]/g' /etc/php-fpm.d/www.conf
+sed -i 's/php_value\[soap.wsdl_cache_dir\]/;php_value\[soap.wsdl_cache_dir\]/g' /etc/php-fpm.d/www.conf
+sed -i 's/;session.save_path = \"\/tmp\"/session.save_path = \"\/tmp\"/g' /etc/php.ini 
+
 # Sua de thay IP tu dong
 #sed -i 's/listen = 127.0.0.1:9000/listen = 192.168.56.101:9000/g' /etc/php-fpm.d/www.conf
 #sed -i 's/listen.allowed_clients = 127.0.0.1/listen.allowed_clients = 192.168.56.100/g' /etc/php-fpm.d/www.conf
-
 
 sed -i 's/disable_functions =/disable_functions = show_source, system, shell_exec, passthru, exec, popen, proc_open/g' /etc/php.ini
 
