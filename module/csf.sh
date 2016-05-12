@@ -41,7 +41,7 @@ sh install.sh
 
 #Remove the installation files.
 rm -rf /opt/csf
-rm /opt/csf.tgz 
+rm -f /opt/csf.tgz 
 
 #Do not forget to firstly test if CSF can really work on your CentOS server:
 perl /usr/local/csf/bin/csftest.pl
